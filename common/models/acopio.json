@@ -6,6 +6,9 @@
     "validateUpsert": true
   },
   "properties": {
+    "legacy_id": {
+      "type": "string"
+    },
     "nombre": {
       "type": "string"
     },
