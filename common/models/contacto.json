@@ -1,6 +1,6 @@
 {
-  "name": "contact",
-  "plural": "contacts",
+  "name": "contacto",
+  "plural": "contactos",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

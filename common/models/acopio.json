@@ -21,15 +21,13 @@
   },
   "validations": [],
   "relations": {
-    "contacts": {
+    "contactos": {
       "type": "hasMany",
-      "model": "contact",
-      "foreignKey": "contactIds"
+      "model": "contacto"
     },
     "productos": {
       "type": "hasMany",
-      "model": "producto",
-      "foreignKey": "productoIds"
+      "model": "producto"
     }
   },
   "acls": [],
