@@ -1,0 +1,37 @@
+{
+  "name": "acopio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "geopos": {
+      "type": "geopoint"
+    },
+    "comments": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "contacts": {
+      "type": "hasMany",
+      "model": "contact",
+      "foreignKey": "contactIds"
+    },
+    "productos": {
+      "type": "hasMany",
+      "model": "producto",
+      "foreignKey": "productoIds"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

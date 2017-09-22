@@ -1,0 +1,26 @@
+{
+  "name": "producto",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "fechaDeActualizacion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "estado": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
