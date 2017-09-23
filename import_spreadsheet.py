@@ -17,17 +17,18 @@ except Exception as e:
     logging.exception('No se pudieron obtener los datos de google')
     exit(1)
 
-headers = {'Content-type': 'application/json', 'Accept': 'application/json'}
+api_url = 'https://hapi.balterbyte.com/api'
+headers = {'Content-type': 'application/json', 'Accept': 'application/json', 'Cache-Control': 'no-cache'}
 
 def upsert_acopio(data):
-    url = 'http://localhost:3000/api/acopios'
-    verify_url = 'http://localhost:3000/api/acopios?filter={"where":{"legacy_id":"' + data['legacy_id'] + '"}}'
+    url = api_url + '/acopios'
+    verify_url = api_url + '/acopios?filter={"where":{"legacy_id":"' + data['legacy_id'] + '"}}'
 
     r = requests.get(verify_url, data=json.dumps(data), headers=headers)
     response = r.json()
     if len(response) > 0:
         idAcopio = response[0]['id']
-        update_url = 'http://localhost:3000/api/acopios/{}'.format(idAcopio)
+        update_url = api_url + '/acopios/{}'.format(idAcopio)
         r = requests.put(update_url, data=json.dumps(data), headers=headers)
         logging.debug(r.json())
         if r.status_code != 200:
@@ -42,14 +43,14 @@ def upsert_acopio(data):
         return r.json()
 
 def upsert_contacto(data):
-    url = 'http://localhost:3000/api/contactos'
-    verify_url = 'http://localhost:3000/api/contactos?filter={"where":{"legacy_id":"' + data['legacy_id'] + '"}}'
+    url = api_url + '/contactos'
+    verify_url = api_url + '/contactos?filter={"where":{"legacy_id":"' + data['legacy_id'] + '"}}'
 
     r = requests.get(verify_url, data=json.dumps(data), headers=headers)
     response = r.json()
     if len(response) > 0:
         idContacto = response[0]['id']
-        update_url = 'http://localhost:3000/api/contactos/{}'.format(idContacto)
+        update_url = api_url + '/contactos/{}'.format(idContacto)
         r = requests.put(update_url, data=json.dumps(data), headers=headers)
         if r.status_code != 200:
             return
@@ -64,7 +65,7 @@ def upsert_contacto(data):
 
 
 def upsert_productos(idAcopio, productos):
-    url = 'http://localhost:3000/api/acopios/{}/productos'.format(idAcopio)
+    url = api_url + '/acopios/{}/productos'.format(idAcopio)
     requests.delete(url, headers=headers)
 
     for producto in productos:
@@ -81,7 +82,7 @@ for row in reader:
     logging.info("Processing row {}".format(i))
     try:
         data = {
-            'legacy_id': row['ID'],
+            'legacy_id': row['id'],
             'nombre': row['Nombre del centro de acopio'],
             'direccion': row['Dirección (agregada)'],
         }
@@ -124,7 +125,8 @@ for row in reader:
 
         # POST PRODUCTS
         productos_raw = row['Necesidades']
-        productos_raw.replace('y', ',')
+        productos_raw = productos_raw.replace('y', ',')
+        productos_raw = productos_raw.replace('.', ',')
         productos = productos_raw.split(",")
 
         upsert_productos(acopio['id'], productos)
