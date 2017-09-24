@@ -14,37 +14,42 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mlab",
+    "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": false
   },
   "producto": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "acopio": {
-    "dataSource": "db",
+    "dataSource": "mlab",
     "public": true
   },
   "contacto": {
-    "dataSource": "db",
+    "dataSource": "mlab",
+    "public": true
+  },
+  "voluntario": {
+    "dataSource": "mlab",
     "public": true
   }
 }
