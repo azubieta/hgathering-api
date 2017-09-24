@@ -13,10 +13,13 @@ case "$1" in
     mongo-rmf)
         docker rm -f $MONGO_CONT
         ;;
+    mongo-restore)
+        mongorestore --host=localhost --db=help_mx $2
+        ;;
     start)
         npm start
         ;;
     *)
-        echo "Usage: $0 {mongo-fresh|mongo-start|mongo-rmf|start}"
+        echo "Usage: $0 {mongo-fresh|mongo-start|mongo-rmf|mongo-restore|start}"
         ;;
 esac
