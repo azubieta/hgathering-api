@@ -1,0 +1,28 @@
+{
+  "name": "comentario",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "valor": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "texto": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "autor": {
+      "type": "belongsTo",
+      "model": "voluntario",
+      "foreignKey": "autorId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -8,44 +8,56 @@
   },
   "properties": {},
   "validations": [],
-  "relations": {},
+  "relations": {
+    "contact  ": {
+      "type": "embedsOne",
+      "model": "contacto",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "create"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "deleteById"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "find"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "findById"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "updateAttributes"
-    }, {
+    },
+    {
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "confirm"
-    }, {
+    },
+    {
+      "accessType": "EXECUTE",
       "principalType": "ROLE",
       "principalId": "admin",
       "permission": "ALLOW",
-      "property": "resetPassword",
-      "accessType": "EXECUTE"
+      "property": "resetPassword"
     },
     {
       "principalType": "ROLE",

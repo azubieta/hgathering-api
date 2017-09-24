@@ -38,7 +38,7 @@
   },
   "producto": {
     "dataSource": "mlab",
-    "public": true
+    "public": false
   },
   "acopio": {
     "dataSource": "mlab",
@@ -46,10 +46,14 @@
   },
   "contacto": {
     "dataSource": "mlab",
-    "public": true
+    "public": false
   },
   "voluntario": {
     "dataSource": "mlab",
     "public": true
+  },
+  "comentario": {
+    "dataSource": "mlab",
+    "public": false
   }
 }

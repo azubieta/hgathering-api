@@ -18,7 +18,10 @@
     "geopos": {
       "type": "geopoint"
     },
-    "comments": {
+    "details": {
+      "type": "string"
+    },
+    "estado": {
       "type": "string"
     }
   },
@@ -28,9 +31,14 @@
       "type": "hasMany",
       "model": "contacto"
     },
-    "productos": {
+    "aceptan": {
       "type": "hasMany",
       "model": "producto"
+    },
+    "comentarios": {
+      "type": "hasMany",
+      "model": "comentario",
+      "foreignKey": ""
     }
   },
   "acls": [
