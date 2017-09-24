@@ -36,15 +36,15 @@
     "public": false
   },
   "producto": {
-    "dataSource": "mlab",
+    "dataSource": "db",
     "public": true
   },
   "acopio": {
-    "dataSource": "mlab",
+    "dataSource": "db",
     "public": true
   },
   "contacto": {
-    "dataSource": "mlab",
+    "dataSource": "db",
     "public": true
   }
 }
