@@ -1,0 +1,10 @@
+{
+  "mlab": {
+    "host": "localhost",
+    "port": 27017,
+    "url": "mongodb://localhost:27017/help_mx",
+    "database": "help_mx",
+    "name": "mlab",
+    "connector": "mongodb"
+  }
+}
