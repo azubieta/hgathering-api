@@ -1,0 +1,30 @@
+{
+  "name": "existencia_envio",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "cantidad": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "fecha_actualizcion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "producto": {
+      "type": "belongsTo",
+      "model": "producto",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

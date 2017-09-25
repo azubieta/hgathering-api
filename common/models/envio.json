@@ -1,0 +1,66 @@
+{
+  "name": "envio",
+  "plural": "envios",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fecha_salida": {
+      "type": "date",
+      "required": true
+    },
+    "fecha_llegada": {
+      "type": "date"
+    },
+    "capacidad": {
+      "type": "number",
+      "required": true
+    },
+    "llenado": {
+      "type": "number"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "detalles": {
+      "type": "string"
+    },
+    "fecha_actualizacion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "recorrido": {
+      "type": "embedsMany",
+      "model": "lugar",
+      "foreignKey": "",
+      "property": "paradas"
+    },
+    "comentarios": {
+      "type": "embedsMany",
+      "model": "comentario",
+      "foreignKey": ""
+    },
+    "contactos": {
+      "type": "embedsMany",
+      "model": "contacto",
+      "property": "contactos",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "carga": {
+      "type": "hasMany",
+      "model": "existencia_envio",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
