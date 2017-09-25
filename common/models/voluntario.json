@@ -6,7 +6,12 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {},
+  "properties": {
+    "habilidades": {
+      "type": "array",
+      "default": []
+    }
+  },
   "validations": [],
   "relations": {
     "contact  ": {

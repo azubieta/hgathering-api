@@ -13,13 +13,12 @@
       "type": "string",
       "required": true
     },
-    "fechaDeActualizacion": {
-      "type": "date",
-      "required": true,
-      "defaultFn": "now"
+    "tipo": {
+      "type": "string"
     },
-    "estado": {
-      "type": "boolean"
+    "unidad_de_medida": {
+      "type": "string",
+      "default": "unidades"
     }
   },
   "validations": [],

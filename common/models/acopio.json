@@ -1,6 +1,7 @@
 {
   "name": "acopio",
-  "base": "PersistedModel",
+  "plural": "acopios",
+  "base": "lugar",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -12,32 +13,45 @@
     "nombre": {
       "type": "string"
     },
-    "direccion": {
-      "type": "string"
-    },
-    "geopos": {
-      "type": "geopoint"
-    },
     "details": {
       "type": "string"
     },
     "estado": {
       "type": "string"
+    },
+    "fechaDeActualizacion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
     }
   },
   "validations": [],
   "relations": {
-    "contactos": {
-      "type": "hasMany",
-      "model": "contacto"
-    },
     "aceptan": {
-      "type": "hasMany",
+      "type": "referencesMany",
       "model": "producto"
     },
+    "contactos": {
+      "type": "embedsMany",
+      "model": "contacto",
+      "property": "contactos",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
     "comentarios": {
-      "type": "hasMany",
+      "type": "embedsMany",
       "model": "comentario",
+      "property": "comentarios",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "existencias": {
+      "type": "hasMany",
+      "model": "existencia_acopio",
       "foreignKey": ""
     }
   },

@@ -1,0 +1,57 @@
+{
+  "name": "distribucion",
+  "plural": "distribucion",
+  "base": "lugar",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tipo": {
+      "type": "string",
+      "required": true,
+      "default": "punto de distribución"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "fechaDeActualizacion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "necesidades": {
+      "type": "hasMany",
+      "model": "existencia_distribucion",
+      "foreignKey": ""
+    },
+    "existencias": {
+      "type": "hasMany",
+      "model": "existencia_distribucion",
+      "foreignKey": ""
+    },
+    "contactos": {
+      "type": "embedsMany",
+      "model": "contacto",
+      "property": "contactos",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "comentarios": {
+      "type": "embedsMany",
+      "model": "comentario",
+      "property": "comentarios",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
