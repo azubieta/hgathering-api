@@ -1,0 +1,67 @@
+{
+  "name": "problema",
+  "plural": "problemas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "detalles": {
+      "type": "string"
+    },
+    "fecha_reporte": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "fecha_actualizacion": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "estado": {
+      "type": "string",
+      "required": true,
+      "default": "pendiente"
+    },
+    "tipo": {
+      "type": "string",
+      "required": true
+    },
+    "urgencia": {
+      "type": "string",
+      "required": true,
+      "default": "normal"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "lugar": {
+      "type": "embedsOne",
+      "model": "lugar",
+      "foreignKey": ""
+    },
+    "responsables": {
+      "type": "referencesMany",
+      "model": "voluntario",
+      "foreignKey": "responsableIds"
+    },
+    "comentarios": {
+      "type": "embedsMany",
+      "model": "comentario",
+      "foreignKey": ""
+    },
+    "voluntario": {
+      "type": "belongsTo",
+      "model": "voluntario",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -79,5 +79,9 @@
   "existencia_envio": {
     "dataSource": "mlab",
     "public": false
+  },
+  "problema": {
+    "dataSource": "mlab",
+    "public": true
   }
 }
