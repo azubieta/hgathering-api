@@ -13,9 +13,6 @@
     "geopos": {
       "type": "geopoint"
     },
-    "estado": {
-      "type": "string"
-    },
     "codigo_postal": {
       "type": "number"
     }
