@@ -21,7 +21,12 @@ module.exports = function (app) {
     {name: 'admin'}
   );
 
-  Promise.all([createAdmin, createAdminRole])
+  var createCoordinadorRole = Role.findOrCreate(
+    {where: {name : 'coordinador'}},
+    {name: 'coordinador'}
+  );
+
+  Promise.all([createAdmin, createAdminRole, createCoordinadorRole])
     .then(function (results) {
 
       var admin = results[0][0];
