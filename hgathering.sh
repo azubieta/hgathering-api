@@ -16,7 +16,7 @@ Donde <comando> es una de las siguientes opciones:
     mongo-start   - Inicia el contenedor de mongo ya existente.
     mongo-rmf     - Elimina el contenedor de mongo existente.
     mongo-restore - Restaura el dump de una bd en la instancia local de mongo. Aquí se utiliza <arg1> como el directorio en donde se encuentran los archivos del dump.
-    redis-fresh   - Crea un nuevo contenedor basado en la imagen de redis:3.4.
+    redis-fresh   - Crea un nuevo contenedor basado en la imagen de redis:3.4-alpine.
     redis-start   - Inicia el contenedor de redis ya existente.
     redis-rmf     - Elimina el contenedor de redis existente."
     echo "$help"
