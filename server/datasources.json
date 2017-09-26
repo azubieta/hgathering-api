@@ -1,16 +1,1 @@
-{
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
-  "mlab": {
-    "host": "ds147034.mlab.com",
-    "port": 47034,
-    "url": "mongodb://root:root@ds147034.mlab.com:47034/help_mx",
-    "database": "help_mx",
-    "password": "root",
-    "name": "mlab",
-    "user": "root",
-    "connector": "mongodb"
-  }
-}
+{}

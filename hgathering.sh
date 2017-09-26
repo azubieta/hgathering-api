@@ -1,7 +1,11 @@
 #! /bin/bash
 
+PORT=${PORT:-"3000"}
+
+NODE_TAG=${NODE_TAG:-"8.5-alpine"}
 MONGO_CONT=${MONGO_CONT:-"mongo-3.4"}
 MONGO_TAG=${MONGO_TAG:-"3.4"}
+MONGO_LINKED=${MONGO_LINKED:-"linked-mongo"}
 REDIS_CONT=${REDIS_CONT:-"redis-3.2-alpine"}
 REDIS_TAG=${REDIS_TAG:-"3.2-alpine"}
 
@@ -12,6 +16,7 @@ $0 <comando>
 Donde <comando> es una de las siguientes opciones:
 
     start         - Inicia el servicio con npm start
+    app-develop   - Inicia el servicio desde un contenedor efimero de node:8.5-alpine.
     mongo-fresh   - Crea un nuevo contenedor basado en la imagen de mongo:3.4.
     mongo-start   - Inicia el contenedor de mongo ya existente.
     mongo-rmf     - Elimina el contenedor de mongo existente.
@@ -20,6 +25,18 @@ Donde <comando> es una de las siguientes opciones:
     redis-start   - Inicia el contenedor de redis ya existente.
     redis-rmf     - Elimina el contenedor de redis existente."
     echo "$help"
+}
+
+function start_app_with_docker {
+    start_mongo_container
+    docker run --rm -it \
+        -v $(pwd):/app \
+        -p $PORT:$PORT \
+        --link $MONGO_CONT:$MONGO_LINKED \
+        -e MONGO_HOST=$MONGO_LINKED \
+        -e MONGO_PORT=27017 \
+        node:$NODE_TAG \
+        sh -c "cd /app; npm install; node ."
 }
 
 function run_mongo_container {
@@ -51,11 +68,9 @@ function remove_redis_container {
 }
 
 case "$1" in
-    # Service management
     start)
-        npm start
+        start_app_with_docker
         ;;
-    # Docker containers management
     mongo-fresh)
         run_mongo_container
         ;;
